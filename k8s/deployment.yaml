@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-gateway
+  labels:
+    tier: payment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      tier: payment
+  template:
+    metadata:
+      labels:
+        tier: payment
+    spec:
+      containers:
+        - name: payment-gateway
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
