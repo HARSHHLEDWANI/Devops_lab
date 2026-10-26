@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  environment {
+    KUBECONFIG = 'C:/Users/Harsh/.kube/config'
+  }
   stages {
     stage('Build & Unit Test') {
       steps { dir('D:/devops_lab_practical') {
